@@ -1,0 +1,41 @@
+<form [formGroup]="registerForm" (ngSubmit)="register()" class="form-group needs-validation" novalidate>
+  <div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" id="username" name="username" [(ngModel)]="user.username"  formControlName="username" required class="form-control" >
+    <div *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched" class="invalid-feedback d-block">
+      Username is required.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" id="email" name="email" formControlName="email" required class="form-control"  [(ngModel)]="user.email">
+    <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="invalid-feedback d-block">
+      A valid email is required.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" id="password" name="password" [(ngModel)]="user.password"  formControlName="password" required minlength="8" class="form-control" >
+    <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="invalid-feedback d-block">
+      Password must be at least 8 characters long, contain one uppercase letter, one lowercase letter, one number, and one special character.
+    </div>
+    <div class="form-text text-muted" style="margin-top: 5px;">
+      Password must be at least 8 characters long, contain one uppercase letter, one lowercase letter, one number, and one special character.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="role" class="form-label">Role</label>
+    <select id="role" name="role" formControlName="role" [(ngModel)]="user.role"  required class="form-control">
+      <option value="USER">USER</option>
+      <option value="ADMIN">ADMIN</option>
+    </select>
+    <div *ngIf="registerForm.get('role')?.invalid && registerForm.get('role')?.touched" class="invalid-feedback d-block">
+      Please select a role.
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
+</form>

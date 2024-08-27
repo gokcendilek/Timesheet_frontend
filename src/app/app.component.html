@@ -1,0 +1,13 @@
+<div>
+  <nav>
+    <a routerLink="/login"> Login</a> |
+    <a routerLink="/register"> Register</a> |
+    <a routerLink="/timesheet"> Timesheet</a> |
+    <a routerLink="/admin"> Admin Panel</a>
+    <a routerLink="/login" (click)="authService.logout()"> Exit</a>
+  </nav>
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,113 @@
+<div class="admin-container">
+  <h2 class="panel-title">Admin Panel</h2>
+
+  <div class="button-group mb-4">
+    <button (click)="loadUsers()" class="btn btn-primary">List Users</button>
+    <button (click)="toggleSearch()" class="btn btn-secondary">Search Users</button>
+    <button (click)="loadTimesheets()" class="btn btn-info">List All Timesheets</button>
+  </div>
+
+
+  <div *ngIf="showSearchForm" class="search-form mb-4">
+    <div class="form-group">
+      <label for="criteria">Search by:</label>
+      <select id="criteria" [(ngModel)]="selectedCriteria" class="form-control">
+        <option value="username">Username</option>
+        <option value="email">Email</option>
+        <option value="registrationDate">Registration Date</option>
+      </select>
+    </div>
+
+    <div class="form-group" *ngIf="selectedCriteria !== 'registrationDate'">
+      <input type="text" [formControl]="searchQueryControl" placeholder="Enter search value" class="form-control"/>
+    </div>
+    <div class="form-group" *ngIf="selectedCriteria === 'registrationDate'">
+      <input type="date" [formControl]="searchQueryControl" class="form-control"/>
+    </div>
+
+    <button (click)="onSearch()" class="btn btn-primary mt-2">Search</button>
+  </div>
+
+  <hr/>
+
+
+  <div *ngIf="users.length > 0; else noUsersFound">
+    <h3>User List</h3>
+    <table class="table table-striped user-table">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Registration Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.registrationDate | date }}</td>
+          <td class="action-buttons">
+            <button (click)="viewTimesheets(user.id)" class="btn btn-info btn-sm">View Timesheets</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noUsersFound>
+    <div *ngIf="showSearchForm && users.length === 0" class="alert alert-info">
+      No users found. Please try another search.
+    </div>
+  </ng-template>
+
+  <!-- Selected User's Timesheets -->
+  <div *ngIf="selectedUserTimesheets.length > 0" class="mt-4">
+    <h3>{{ selectedUsername }}'s Timesheets</h3>
+    <table class="table table-hover timesheet-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let timesheet of selectedUserTimesheets">
+          <td>{{ timesheet.date }}</td>
+          <td>{{ timesheet.startTime }}</td>
+          <td>{{ timesheet.endTime }}</td>
+          <td>{{ timesheet.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="exportTimesheets(selectedUserId)" class="btn btn-info btn-sm">Export Timesheets</button>
+  </div>
+
+ 
+  <div *ngIf="timesheets.length > 0" class="mt-4">
+    <h3>All Timesheets</h3>
+    <table class="table table-hover timesheet-table">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Date</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let timesheet of timesheets">
+          <td>{{ timesheet.user.username }}</td>
+          <td>{{ timesheet.date }}</td>
+          <td>{{ timesheet.startTime }}</td>
+          <td>{{ timesheet.endTime }}</td>
+          <td>{{ timesheet.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="exportTimesheets(null)" class="btn btn-info btn-sm">Export All Timesheets</button>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+ <div class="timesheet-wrapper">
+    <div class="timesheet-container">
+      <h2>Timesheet</h2>
+      <form (ngSubmit)="isEditMode ? updateTimesheet() : saveTimesheet()">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date" [(ngModel)]="timesheet.date" name="date" required />
+          </div>
+          <div class="form-group">
+            <label for="startTime">Start Time</label>
+            <input type="time" id="startTime" [(ngModel)]="timesheet.startTime" name="startTime" required />
+          </div>
+        </div>
+  
+        <div class="form-row">
+          <div class="form-group">
+            <label for="endTime">End Time</label>
+            <input type="time" id="endTime" [(ngModel)]="timesheet.endTime" name="endTime" required />
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" id="description" [(ngModel)]="timesheet.description" name="description" />
+          </div>
+        </div>
+        
+        <div class="button-group">
+          <button type="submit" class="btn btn-primary" *ngIf="!isEditMode">Save Timesheet</button>
+          <button type="submit" class="btn btn-success update-btn" *ngIf="isEditMode">Update Timesheet</button>
+          <button type="button" class="btn btn-secondary" (click)="cancelUpdate()" *ngIf="isEditMode">Cancel</button>
+          
+        </div>
+      </form>
+    </div>
+  
+
+    <div class="timesheet-container">
+      <h3>Timesheets Search</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="startDate">Start Date</label>
+          <input type="date" id="startDate" [(ngModel)]="searchTimesheet.startDate" name="startDate" required />
+        </div>
+        <div class="form-group">
+          <label for="endDate">End Date</label>
+          <input type="date" id="endDate" [(ngModel)]="searchTimesheet.endDate" name="endDate" required />
+        </div>
+      </div>
+      <button (click)="onSearchTimeSheets()" class="btn btn-primary mt-2">Search</button>
+    </div>
+  </div>
+  
+  
+  <div class="timesheet-table-container">
+    <h2 class="title-background">My Timesheets</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let entry of timesheets">
+          <td>{{ entry.date }}</td>
+          <td>{{ entry.startTime }}</td>
+          <td>{{ entry.endTime }}</td>
+          <td>{{ entry.description }}</td>
+          <td class="action-buttons">
+            <button (click)="editTimesheet(entry)" class="btn btn-info btn-sm">Edit</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <button (click)="exportTimesheets('csv')" class="btn btn-secondary">Export as CSV</button>
+  </div>
+  
