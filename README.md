@@ -4,7 +4,7 @@ This is the frontend of the **Timesheet Management System**, developed using **A
 
 ##  Features
 
-### 👤 User Functionality
+### User Functionality
 - Register with username, email, and password
 - Login and receive JWT token
 - Create, update, and delete daily timesheet entries
