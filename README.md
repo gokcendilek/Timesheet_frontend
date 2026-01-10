@@ -1,6 +1,6 @@
 # Timesheet Frontend (Angular)
 
-This is the frontend of the **Timesheet Management System**, developed using **Angular 18**. It allows users to register, log in, and manage their daily timesheet entries. Admins can search users, list all users, view individual user timesheets, and export data.
+This is the frontend of the **Timesheet Management System**, developed using **Angular 21**. It allows users to register, log in, and manage their daily timesheet entries. Admins can search users, list all users, view individual user timesheets, and export data.
 
 ## 🚀 Features
 
@@ -21,8 +21,8 @@ This is the frontend of the **Timesheet Management System**, developed using **A
 
 ## 🛠️ Technologies Used
 
-- **Angular** 18.1.0
-- **TypeScript** 5.5.2
+- **Angular** 21.0.8
+- **TypeScript** 5.9.0
 - **Bootstrap** 5.3.3 (UI framework)
 - **ngx-toastr** 19.0.0 (notifications)
 - **RxJS** 7.8.0 (reactive programming)
@@ -32,9 +32,9 @@ This is the frontend of the **Timesheet Management System**, developed using **A
 ## 📋 Prerequisites
 
 Before you begin, ensure you have the following installed:
-- **Node.js** (v18.19.1 or higher recommended)
+- **Node.js** (v20.9.0 or higher recommended)
 - **npm** (v6.11.0 or higher)
-- **Angular CLI** (v18.1.0 or higher)
+- **Angular CLI** (v21.0.5 or higher)
 
 ## 🔧 Installation
 
@@ -46,8 +46,10 @@ Before you begin, ensure you have the following installed:
 
 2. **Install dependencies**
    ```bash
-   npm install
+   npm install --legacy-peer-deps
    ```
+   
+   **Note:** `--legacy-peer-deps` flag is required due to Angular 21 peer dependency requirements.
 
 3. **Configure API endpoint**
    
@@ -119,6 +121,8 @@ src/
 
 ### Security Updates
 - ✅ Fixed `qs` package vulnerability (CVE-2025-15284) via npm overrides
+- ✅ Upgraded to Angular 21.0.8 to fix XSS vulnerability (CVE-2026-22610)
+- ✅ Fixed SVG `<script>` element XSS vulnerability in Angular Template Compiler
 - All dependencies are regularly updated for security patches
 
 ## 📝 API Endpoints
