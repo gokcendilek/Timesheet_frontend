@@ -7,7 +7,8 @@ import { ToastrService } from 'ngx-toastr';  // Toastr for notifications
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  standalone: false
 })
 export class RegisterComponent {
   user = { username: '', email: '', password: '' , role: ''};

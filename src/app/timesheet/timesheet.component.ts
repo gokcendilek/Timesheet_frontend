@@ -6,7 +6,8 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-timesheet',
   templateUrl: './timesheet.component.html',
-  styleUrls: ['./timesheet.component.css']
+  styleUrls: ['./timesheet.component.css'],
+  standalone: false
 })
 export class TimesheetComponent implements OnInit {
 
