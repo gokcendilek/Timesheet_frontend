@@ -2,7 +2,7 @@
 
 This is the frontend of the **Timesheet Management System**, developed using **Angular 21**. It allows users to register, log in, and manage their daily timesheet entries. Admins can search users, list all users, view individual user timesheets, and export data.
 
-## 🚀 Features
+##  Features
 
 ### User Functionality
 - ✅ User registration with username, email, and password
@@ -19,7 +19,7 @@ This is the frontend of the **Timesheet Management System**, developed using **A
 - ✅ Role-based access control (admin vs user)
 - ✅ User management capabilities
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 - **Angular** 21.0.8
 - **TypeScript** 5.9.0
@@ -36,7 +36,7 @@ Before you begin, ensure you have the following installed:
 - **npm** (v6.11.0 or higher)
 - **Angular CLI** (v21.0.5 or higher)
 
-## 🔧 Installation
+##  Installation
 
 1. **Clone the repository**
    ```bash
@@ -67,7 +67,7 @@ Before you begin, ensure you have the following installed:
    
    The application will be available at `http://localhost:4200`
 
-## 🏗️ Build
+##  Build
 
 To build the project for production:
 
@@ -77,7 +77,7 @@ npm run build
 
 The build artifacts will be stored in the `dist/timesheet-app` directory.
 
-## 🧪 Testing
+##  Testing
 
 Run unit tests:
 
@@ -85,7 +85,7 @@ Run unit tests:
 npm test
 ```
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 src/
@@ -104,7 +104,7 @@ src/
 └── index.html              # Main HTML file
 ```
 
-## 🔐 Security
+##  Security
 
 ### Authentication & Authorization
 - JWT token-based authentication
@@ -125,7 +125,7 @@ src/
 - ✅ Fixed SVG `<script>` element XSS vulnerability in Angular Template Compiler
 - All dependencies are regularly updated for security patches
 
-## 📝 API Endpoints
+##  API Endpoints
 
 The application communicates with a backend API. Ensure your backend is running and accessible.
 
@@ -149,7 +149,7 @@ The application communicates with a backend API. Ensure your backend is running 
 - `GET /api/admin/timesheets?userId={id}` - Get timesheets by user ID
 - `GET /api/admin/timesheets/export/csv` - Export all timesheets to CSV
 
-## 🎨 UI Features
+##  UI Features
 
 - Responsive design with Bootstrap
 - Toast notifications for user feedback
@@ -157,7 +157,7 @@ The application communicates with a backend API. Ensure your backend is running 
 - Loading states and error handling
 - Clean and modern interface
 
-## 🔄 Development
+##  Development
 
 ### Available Scripts
 
@@ -166,7 +166,7 @@ The application communicates with a backend API. Ensure your backend is running 
 - `npm run watch` - Build and watch for changes
 - `npm test` - Run unit tests
 
-## 📄 License
+##  License
 
 This project is private and proprietary.
 
@@ -174,7 +174,7 @@ This project is private and proprietary.
 
 **gokcendilek**
 
-## 🤝 Contributing
+##  Contributing
 
 This is a private project. Contributions are not currently accepted.
 
